@@ -2,6 +2,24 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const FlashCardPage = ()=>{
+    return (
+      <div className='cardFrame'>
+        <div className='status'>
+          <span>Status</span>
+        </div>
+        <div className='question'>
+          <p>
+            Question
+          </p>
+        </div>
+        <div className='dateCreated'>
+          <span>Date created</span>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="App">
       <div>
