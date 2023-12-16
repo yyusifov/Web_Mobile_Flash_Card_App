@@ -3,19 +3,44 @@ import './App.css';
 
 function App() {
 
+  const navigationBar = ()=>{
+    <div className='navBar'>
+      <div className='contForPages'>
+        <div className='page'>
+          <a><span>Home Page</span></a>
+        </div>
+        <div className='page'>
+          <a><span>Flash Card</span></a>
+        </div>
+        <div className='page'>
+          <a><span>Contact Me</span></a>
+        </div>
+      </div>
+    </div>
+  }
+
+  const addCard = ()=>{
+    <div>
+      <div>
+        <span>Add a new card</span>
+      </div>
+    </div>
+  }
   const FlashCardPage = ()=>{
     return (
-      <div className='cardFrame'>
-        <div className='status'>
-          <span>Status</span>
-        </div>
-        <div className='question'>
-          <p>
-            Question
-          </p>
-        </div>
-        <div className='dateCreated'>
-          <span>Date created</span>
+      <div className='flashCardPage'>
+        <div className='cardFrame'>
+          <div className='status'>
+            <span>Status</span>
+          </div>
+          <div className='question'>
+            <p>
+              Question
+            </p>
+          </div>
+          <div className='dateCreated'>
+            <span>Date created</span>
+          </div>
         </div>
       </div>
     );
