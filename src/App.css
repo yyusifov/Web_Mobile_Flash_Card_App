@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -7,6 +8,50 @@
   pointer-events: none;
 }
 
+.flashCardPage{
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vw;
+  overflow: hidden;
+}
+
+.flashCardRow{
+  display: flex;
+  flex-direction: row;
+  column-gap: 2.5vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.cardFrame{
+  width:16vw;
+  height: 25vw;
+  background-color: #61dafb;
+  border-radius: 1vw;
+  padding: 0.3vw;
+}
+
+.cardFrame:hover{
+  transform: scale(1.05);
+}
+
+div.addCard{
+  display: flex;
+  flex-direction: row;
+  padding-top: 2vw;
+  padding-left: 90%;
+  width: 100%;
+}
+
+button.additionFrame{
+  display: flex;
+  flex-direction: column;
+  width: 9vw;
+  height: 3vw;
+  border-radius: 1vw;
+  justify-content: center;
+  align-items: center;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

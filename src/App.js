@@ -12,19 +12,6 @@ function App() {
           <button className='page' onClick={() => moveToDiffPage('flashCard')}>
             <span>Flash Card</span>
           </button>
-          <button className='page' onClick={() => moveToDiffPage('addCard')}>
-            <span>Add Card</span>
-          </button>
-        </div>
-      </div>
-    );
-  };
-
-  const addCard = () => {
-    return (
-      <div>
-        <div>
-          <span>Add a new card</span>
         </div>
       </div>
     );
@@ -33,15 +20,70 @@ function App() {
   const FlashCardPage = () => {
     return (
       <div className='flashCardPage'>
-        <div className='cardFrame'>
-          <div className='status'>
-            <span>Status</span>
+      <div className='addCard'>
+        <button className='additionFrame'>
+          <span>Add a new card</span>
+        </button>
+      </div>
+        <div className='flashCardRow'> 
+          <div className='cardFrame'>
+            <div className='status'>
+              <span>Status</span>
+            </div>
+            <div className='question'>
+              <p>Question</p>
+            </div>
+            <div className='dateCreated'>
+              <span>Date created</span>
+            </div>
           </div>
-          <div className='question'>
-            <p>Question</p>
+
+          <div className='cardFrame'>
+            <div className='status'>
+              <span>Status</span>
+            </div>
+            <div className='question'>
+              <p>Question</p>
+            </div>
+            <div className='dateCreated'>
+              <span>Date created</span>
+            </div>
           </div>
-          <div className='dateCreated'>
-            <span>Date created</span>
+
+          <div className='cardFrame'>
+            <div className='status'>
+              <span>Status</span>
+            </div>
+            <div className='question'>
+              <p>Question</p>
+            </div>
+            <div className='dateCreated'>
+              <span>Date created</span>
+            </div>
+          </div>
+
+          <div className='cardFrame'>
+            <div className='status'>
+              <span>Status</span>
+            </div>
+            <div className='question'>
+              <p>Question</p>
+            </div>
+            <div className='dateCreated'>
+              <span>Date created</span>
+            </div>
+          </div>
+
+          <div className='cardFrame'>
+            <div className='status'>
+              <span>Status</span>
+            </div>
+            <div className='question'>
+              <p>Question</p>
+            </div>
+            <div className='dateCreated'>
+              <span>Date created</span>
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +124,6 @@ function App() {
       )}
 
       {currentPage === 'flashCard' && <FlashCardPage />}
-      {currentPage === 'addCard' && <>{addCard()}</>}
     </div>
   );
 }
