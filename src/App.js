@@ -36,17 +36,13 @@ function App() {
             <div className='dateCreated'>
               <span>Date created</span>
             </div>
-          </div>
-
-          <div className='cardFrame'>
-            <div className='status'>
-              <span>Status</span>
-            </div>
-            <div className='question'>
-              <p>Question</p>
-            </div>
-            <div className='dateCreated'>
-              <span>Date created</span>
+            <div className='modificationOnCard'>
+              <button>
+                Edit
+              </button>
+              <button>
+                Delete
+              </button>
             </div>
           </div>
 
@@ -60,17 +56,13 @@ function App() {
             <div className='dateCreated'>
               <span>Date created</span>
             </div>
-          </div>
-
-          <div className='cardFrame'>
-            <div className='status'>
-              <span>Status</span>
-            </div>
-            <div className='question'>
-              <p>Question</p>
-            </div>
-            <div className='dateCreated'>
-              <span>Date created</span>
+            <div className='modificationOnCard'>
+              <button>
+                Edit
+              </button>
+              <button>
+                Delete
+              </button>
             </div>
           </div>
 
@@ -83,6 +75,54 @@ function App() {
             </div>
             <div className='dateCreated'>
               <span>Date created</span>
+            </div>
+            <div className='modificationOnCard'>
+              <button>
+                Edit
+              </button>
+              <button>
+                Delete
+              </button>
+            </div>
+          </div>
+
+          <div className='cardFrame'>
+            <div className='status'>
+              <span>Status</span>
+            </div>
+            <div className='question'>
+              <p>Question</p>
+            </div>
+            <div className='dateCreated'>
+              <span>Date created</span>
+            </div>
+            <div className='modificationOnCard'>
+              <button>
+                Edit
+              </button>
+              <button>
+                Delete
+              </button>
+            </div>
+          </div>
+
+          <div className='cardFrame'>
+            <div className='status'>
+              <span>Status</span>
+            </div>
+            <div className='question'>
+              <p>Question</p>
+            </div>
+            <div className='dateCreated'>
+              <span>Date created</span>
+            </div>
+            <div className='modificationOnCard'>
+              <button>
+                Edit
+              </button>
+              <button>
+                Delete
+              </button>
             </div>
           </div>
         </div>
