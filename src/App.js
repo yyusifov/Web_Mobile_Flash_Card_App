@@ -20,10 +20,30 @@ function App() {
   const FlashCardPage = () => {
     return (
       <div className='flashCardPage'>
+        <div className='searchBar'>
+          <div className='icon'>
+            <img></img>
+          </div>
+          <div className='inputText'>
+            <input type='text'></input>
+          </div>
+        </div>
       <div className='addCard'>
         <button className='additionFrame'>
           <span>Add a new card</span>
         </button>
+
+        <select className='filtering'>
+          <option>Learned</option>
+          <option>Want to Learn</option>
+          <option>Noted</option>
+        </select>
+
+        <select className='sorting'>
+          <option>attribute 1</option>
+          <option>attribute 2</option>
+          <option>attribute 3</option>
+        </select>
       </div>
         <div className='flashCardRow'> 
           <div className='cardFrame'>

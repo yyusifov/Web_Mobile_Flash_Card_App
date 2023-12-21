@@ -39,8 +39,9 @@ div.addCard{
   display: flex;
   flex-direction: row;
   padding-top: 2vw;
-  padding-left: 90%;
+  padding-left: 70%;
   width: 100%;
+  column-gap: 10px;
 }
 
 button.additionFrame{
