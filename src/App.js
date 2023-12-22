@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import searchCardIcon from './searchCardIcon.svg';
 
 function App() {
   const navigationBar = () => {
@@ -21,11 +22,13 @@ function App() {
     return (
       <div className='flashCardPage'>
         <div className='searchBar'>
-          <div className='icon'>
-            <img></img>
-          </div>
-          <div className='inputText'>
-            <input type='text'></input>
+          <div className='searchFrame'>
+            <div className='icon'>
+              <img src={searchCardIcon} alt='Search Icon' />
+            </div>
+            <div className='inputText'>
+              <input type='text'/>
+            </div>
           </div>
         </div>
       <div className='addCard'>
