@@ -1,0 +1,15 @@
+div.contactBody{
+    display: flex;
+    flex-direction: column;
+}
+
+div.contactForm{
+    display: flex;
+    flex-direction: column;
+}
+
+form#conForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

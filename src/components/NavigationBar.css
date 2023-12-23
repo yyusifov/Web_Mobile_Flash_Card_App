@@ -1,0 +1,14 @@
+nav.navigationBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 1vw;
+}
+
+div.PageFrame{
+    width: 8vw;
+    height: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
