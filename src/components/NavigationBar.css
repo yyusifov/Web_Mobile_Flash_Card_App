@@ -11,4 +11,17 @@ div.PageFrame{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 1vw;
+    border: 0.25px solid black;
+}
+
+div.PageFrame:hover{
+    background-color: blueviolet;
+}
+
+div.PageFrame:hover > .Pages{
+    color: aliceblue;
+}
+.Pages{
+    text-decoration: none;
 }

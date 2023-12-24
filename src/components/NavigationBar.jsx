@@ -6,15 +6,15 @@ export default function Navbar() {
   return (
     <nav className="navigationBar">
       <div className="PageFrame">
-        <NavLink to="/Home">Home</NavLink>
+        <NavLink className={"Pages"} to="/Home">Home</NavLink>
       </div>
 
       <div className="PageFrame">
-      <NavLink to="/FlashCard">FlashCard</NavLink>
+      <NavLink className={"Pages"} to="/FlashCard">FlashCard</NavLink>
       </div>
 
       <div className="PageFrame">
-      <NavLink to="/Contact">Contact</NavLink>
+      <NavLink className={"Pages"} to="/Contact">Contact</NavLink>
       </div>
     </nav>
   );

@@ -13,3 +13,21 @@ form#conForm{
     flex-direction: column;
     align-items: flex-start;
 }
+
+input#subject{
+    border: 0.2px solid black;
+    border-radius: 1vw;
+    width: 30%;
+}
+
+input#emailText{
+    border: 0.2px solid black;
+    border-radius: 1vw;
+    width: 30%;
+}
+
+input#messageContent{
+    border: 0.2px solid black;
+    border-radius: 1vw;
+    height: 25vw;
+}
