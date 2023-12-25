@@ -1,0 +1,24 @@
+{
+    "Countries": [
+      { 
+       "countryName": "Germany",
+       "flag": "flagList/Flag_of_Germany.svg",
+       "capital": "Berlin" 
+      },
+      { 
+        "countryName": "Greece",
+        "flag": "flagList/Flag_of_Greece.svg",
+        "capital": "Atina" 
+       },
+       { 
+        "countryName": "Georgia",
+        "flag": "flagList/Flag_of_Georgia.svg",
+        "capital": "Tiblisi" 
+       },
+       { 
+        "countryName": "Gabon",
+        "flag": "flagList/Flag_of_Gabon.svg",
+        "capital": "Libreville" 
+       }
+    ]
+  }
