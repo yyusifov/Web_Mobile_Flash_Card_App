@@ -2,7 +2,7 @@
     "Countries": [
       { 
        "countryName": "Germany",
-       "flag": "flagList/Flag_of_Germany.svg",
+       "flag": "../jsonFile/flagList/Flag_of_Germany.svg",
        "capital": "Berlin" 
       },
       { 
