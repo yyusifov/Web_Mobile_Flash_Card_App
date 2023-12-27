@@ -31,3 +31,14 @@ input#messageContent{
     border-radius: 1vw;
     height: 25vw;
 }
+input{
+    height: 95%;
+    width: 93%;
+    border: 0;
+    outline: 0;
+    font-family: Kadwa;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }

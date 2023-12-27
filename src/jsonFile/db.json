@@ -2,22 +2,22 @@
     "Countries": [
       { 
        "countryName": "Germany",
-       "flag": "../jsonFile/flagList/Flag_of_Germany.svg",
+       "flag": "/countryFlags/Flag_of_Germany.svg",
        "capital": "Berlin" 
       },
       { 
         "countryName": "Greece",
-        "flag": "flagList/Flag_of_Greece.svg",
+        "flag": "/countryFlags/Flag_of_Greece.svg",
         "capital": "Atina" 
        },
        { 
         "countryName": "Georgia",
-        "flag": "flagList/Flag_of_Georgia.svg",
+        "flag": "/countryFlags/Flag_of_Georgia.svg",
         "capital": "Tiblisi" 
        },
        { 
         "countryName": "Gabon",
-        "flag": "flagList/Flag_of_Gabon.svg",
+        "flag": "/countryFlags/Flag_of_Gabon.svg",
         "capital": "Libreville" 
        }
     ]

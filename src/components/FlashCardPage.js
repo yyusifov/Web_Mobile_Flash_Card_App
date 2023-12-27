@@ -1,10 +1,6 @@
-import searchCardIcon from "../assets/searchCardIcon.svg"
 import React, { useEffect, useState } from 'react';
+import "./FlashCardPage.css"
 
-
-const cardList = () => {
-
-}
 
 const FlashCardPage = () => {
 
@@ -26,7 +22,7 @@ const FlashCardPage = () => {
         <div className='searchBar'>
           <div className='searchFrame'>
             <div className='icon'>
-              <img src={searchCardIcon} alt='Search Icon' />
+              <img src={require("../assets/searchCardIcon.svg").default} alt='Search Icon' />
             </div>
             <div className='inputText'>
               <input type='text'/>
@@ -57,7 +53,7 @@ const FlashCardPage = () => {
                 <span>Status</span>
               </div>
               <div className="countryFlag">
-                <img src={card.flag} alt="Country Flag"/>
+                <img className='flag' src={card.flag} alt="Country Flag"/>
               </div>
               <div className="countryName">
                 <span>{card.countryName}</span>
