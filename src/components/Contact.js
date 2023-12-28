@@ -1,4 +1,18 @@
 import "./Contact.css"
+
+const sendMessage = () => {
+    message = {};
+    fetch('http://localhost:3000/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({message})
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+    return <h1>Hello</h1>
+};
+
 const Contact = () => {
     return (
         <div className="contactBody">
@@ -13,7 +27,7 @@ const Contact = () => {
                     <label for="messageContent">Content</label>
                     <input id="messageContent" type="text" placeholder={"Insert Content"}/>
 
-                    <input type="submit"/>
+                    <input type="submit" onClick={sendMessage}/>
                 </form>
             </div>
         </div>
