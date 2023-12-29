@@ -6,7 +6,7 @@ const FlashCardPage = () => {
 
     const [cardInfo, setCardInfo] = useState([]);
     useEffect(() => {
-      fetch('http://localhost:3000/Countries')
+      fetch('http://localhost:3000/cards')
         .then(response => response.json())
         .then(data => {
           for(let i = 0; i < data.length; i++){

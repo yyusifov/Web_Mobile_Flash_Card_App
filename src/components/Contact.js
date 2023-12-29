@@ -1,33 +1,52 @@
 import "./Contact.css"
 
-const sendMessage = () => {
-    message = {};
+const postMessage = (subject, email, messageContent) => {
+    const message = {
+      subject: subject,
+      email: email,
+      messageContent: messageContent
+    };
+  
     fetch('http://localhost:3000/messages', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({message})
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(message)
     })
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error(error));
-    return <h1>Hello</h1>
-};
+  
+  };
+    
+  const clickSubmit = (e) => {
+    e.preventDefault();
+
+    const subject = document.getElementById("subject").value;
+
+    const Email = document.getElementById("emailText").value;
+
+    const messageContent = document.getElementById("messageContent").value;
+
+    console.log(subject + "\n" + Email + "\n" + messageContent);
+    alert("Message was sent!");
+    postMessage(subject, Email, messageContent);
+  }
 
 const Contact = () => {
     return (
         <div className="contactBody">
             <div className="contactForm">
                 <form id="conForm">
-                    <label for="subject">Subject</label>
-                    <input id="subject" type="text" placeholder={"Insert Subject"}/>
+                    <label htmlFor="subject">Subject</label>
+                    <input id="subject" type="text" placeholder={"Insert Subject"} required/>
 
-                    <label for="emailText">Email</label>
-                    <input id="emailText" type="email" placeholder={"Insert Email"}/>
+                    <label htmlFor="emailText">Email</label>
+                    <input id="emailText" type="email" placeholder={"Insert Email"} required/>
 
-                    <label for="messageContent">Content</label>
-                    <input id="messageContent" type="text" placeholder={"Insert Content"}/>
+                    <label htmlFor="messageContent">Content</label>
+                    <input id="messageContent" type="text" placeholder={"Insert Content"} required/>
 
-                    <input type="submit" onClick={sendMessage}/>
+                    <input type="submit" onClick={clickSubmit}/>
                 </form>
             </div>
         </div>

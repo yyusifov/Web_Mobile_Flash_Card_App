@@ -1,24 +1,50 @@
 {
-    "Countries": [
-      { 
-       "countryName": "Germany",
-       "flag": "/countryFlags/Flag_of_Germany.svg",
-       "capital": "Berlin" 
-      },
-      { 
-        "countryName": "Greece",
-        "flag": "/countryFlags/Flag_of_Greece.svg",
-        "capital": "Atina" 
-       },
-       { 
-        "countryName": "Georgia",
-        "flag": "/countryFlags/Flag_of_Georgia.svg",
-        "capital": "Tiblisi" 
-       },
-       { 
-        "countryName": "Gabon",
-        "flag": "/countryFlags/Flag_of_Gabon.svg",
-        "capital": "Libreville" 
-       }
-    ]
-  }
+  "cards": [
+    {
+      "countryName": "Germany",
+      "flag": "/countryFlags/Flag_of_Germany.svg",
+      "capital": "Berlin"
+    },
+    {
+      "countryName": "Greece",
+      "flag": "/countryFlags/Flag_of_Greece.svg",
+      "capital": "Atina"
+    },
+    {
+      "countryName": "Georgia",
+      "flag": "/countryFlags/Flag_of_Georgia.svg",
+      "capital": "Tiblisi"
+    },
+    {
+      "countryName": "Gabon",
+      "flag": "/countryFlags/Flag_of_Gabon.svg",
+      "capital": "Libreville"
+    }
+  ],
+  "messages": [
+    {
+      "subject": "Homework 2 ",
+      "email": "yyusifov@a",
+      "messageContent": "jksdkjjdsfjdfssd",
+      "id": 1
+    },
+    {
+      "subject": "Homework 2 asdsad",
+      "email": "yyusifov@asadsad",
+      "messageContent": "jksdkjjdsfjdfssdasdsdsadasd",
+      "id": 2
+    },
+    {
+      "subject": "Homework 2 asdsad",
+      "email": "yyusifov@asadsad",
+      "messageContent": "jksdkjjdsfjdfssdasdsdsadasd",
+      "id": 3
+    },
+    {
+      "subject": "Homework 2 asdsad",
+      "email": "yyusifov@asadsad",
+      "messageContent": "jksdkjjdsfjdfssdasdsdsadasd",
+      "id": 4
+    }
+  ]
+}
