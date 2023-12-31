@@ -1,77 +1,85 @@
 import React, { useEffect, useState } from 'react';
 import "./FlashCardPage.css"
 
+const FlashCardPage = () => {
+    const [cardInfo, setCardInfo] = useState([]);
 
+    const editCard = (card) => {
 
-const editCard = (card) => {
-
-  const countryName = document.getElementById(`countryName_${card.id}`);
-
-  const questionForCard = document.getElementById(`question_${card.id}`);
-
-  if(document.getElementById(`editButton_${card.id}`).textContent === "Edit"){
-
-    document.getElementById(`editButton_${card.id}`).textContent = "Save";
-
-    document.getElementById(`countryName_${card.id}`).contentEditable = true;
-
-    document.getElementById(`question_${card.id}`).contentEditable = true;
-  }
-  else{
-    document.getElementById(`editButton_${card.id}`).textContent = "Edit";
-
-    document.getElementById(`countryName_${card.id}`).contentEditable = false;
-
-    document.getElementById(`question_${card.id}`).contentEditable = false;
-
-    const updatedData = {
-      id: card.id,
-      countryName: countryName,
-      flag: `/countryFlags/Flag_of_${card.countryName}.svg`,
-      question:questionForCard,
-      capital: card.capital
+      const countryName = document.getElementById(`countryName_${card.id}`);
+    
+      const questionForCard = document.getElementById(`question_${card.id}`);
+    
+      if(document.getElementById(`editButton_${card.id}`).textContent === "Edit"){
+    
+        document.getElementById(`editButton_${card.id}`).textContent = "Save";
+    
+        document.getElementById(`countryName_${card.id}`).contentEditable = true;
+    
+        document.getElementById(`question_${card.id}`).contentEditable = true;
+      }
+      else{
+        document.getElementById(`editButton_${card.id}`).textContent = "Edit";
+    
+        document.getElementById(`countryName_${card.id}`).contentEditable = false;
+    
+        document.getElementById(`question_${card.id}`).contentEditable = false;
+    
+        const updatedData = {
+          id: card.id,
+          countryName: countryName,
+          flag: `/countryFlags/Flag_of_${card.countryName}.svg`,
+          question:questionForCard,
+          capital: card.capital
+        };
+    
+        updateOnFlashCardPage(updatedData)
+      }
     };
 
-    updateOnFlashCardPage(updatedData)
-  }
-};
-
-const updateOnFlashCardPage = (card) => {
-  const countryName = document.getElementById(`countryName_${card.id}`).textContent;
-  const questionForCard = document.getElementById(`question_${card.id}`).textContent;
-
-  const updatedData = {
-    id: card.id,
-    countryName: countryName,
-    flag: `/countryFlags/Flag_of_${card.countryName}.svg`,
-    question: questionForCard,
-    capital: card.capital
-  };
-
-  fetch(`http://localhost:3000/cards/${updatedData.id}`, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(updatedData),
-  })
-    .then(response => response.json())
-    .then(updatedDataFromServer => {
-      console.log('Data updated on the server:', updatedDataFromServer);
+    const updateOnFlashCardPage = (card) => {
+      const countryName = document.getElementById(`countryName_${card.id}`).textContent;
+      const questionForCard = document.getElementById(`question_${card.id}`).textContent;
+    
+      const updatedData = {
+        id: card.id,
+        countryName: countryName,
+        flag: `/countryFlags/Flag_of_${card.countryName}.svg`,
+        question: questionForCard,
+        capital: card.capital
+      };
+    
+      fetch(`http://localhost:3000/cards/${updatedData.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+      })
+        .then(response => response.json())
+        .then(updatedDataFromServer => {
+          console.log('Data updated on the server:', updatedDataFromServer);
+        })
+        .catch(error => console.error('Error updating data on the server:', error))
+    };
+    
+    const deleteCard = (cardId) => {
+      fetch(`http://localhost:3000/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
-    .catch(error => console.error('Error updating data on the server:', error))
-};
-/*
-const deleteCard = (cardId, cardInfo) => {
-  const isolatedListFromPreviousElement = cardInfo.filter((card) => {card.id !== cardId})
-  
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        console.log('Data deleted on the server');
+      })
+      .catch(error => console.error('Error deleting data on the server:', error));
+    }
 
-}
-*/
-
-const FlashCardPage = () => {
-
-    const [cardInfo, setCardInfo] = useState([]);
+    
     useEffect(() => {
       fetch('http://localhost:3000/cards')
         .then(response => response.json())
@@ -133,9 +141,7 @@ const FlashCardPage = () => {
               </div>
               <div className='modificationOnCard' id={`modificationOnCard_${card.id}`}>
                 <button id={`editButton_${card.id}`} onClick={()=>{editCard(card)}}>Edit</button>
-                <button>Delete</button>
-
-                {/*<button onClick={() => {deleteCard(card.id, cardInfo)}}>Delete</button>*/}
+                <button onClick={() => {deleteCard(card.id)}}>Delete</button>
               </div>
             </div>
           ))}
