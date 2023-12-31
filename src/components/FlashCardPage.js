@@ -4,6 +4,20 @@ import "./FlashCardPage.css"
 const FlashCardPage = () => {
     const [cardInfo, setCardInfo] = useState([]);
 
+    const showAnswer = (card) => {
+      const cardFrame = document.getElementById(`cardFrame_${card.id}`);
+
+      const buttonText = document.getElementById('answerButText');
+
+      if(buttonText.textContent === "Show answer"){
+        buttonText.textContent = "Show question";
+      }
+      else{
+        buttonText.textContent = "Show answer";
+      }
+      cardFrame.style.transform = "rotateY(180deg)";
+    };
+
     const editCard = (card) => {
 
       const countryName = document.getElementById(`countryName_${card.id}`);
@@ -28,12 +42,12 @@ const FlashCardPage = () => {
         const updatedData = {
           id: card.id,
           countryName: countryName,
-          flag: `/countryFlags/Flag_of_${card.countryName}.svg`,
-          question:questionForCard,
+          flag: card.flag,
+          question: questionForCard,
           capital: card.capital
-        };
-    
-        updateOnFlashCardPage(updatedData)
+        };        
+
+        updateOnFlashCardPage(updatedData);
       }
     };
 
@@ -44,7 +58,7 @@ const FlashCardPage = () => {
       const updatedData = {
         id: card.id,
         countryName: countryName,
-        flag: `/countryFlags/Flag_of_${card.countryName}.svg`,
+        flag: card.flag,
         question: questionForCard,
         capital: card.capital
       };
@@ -60,7 +74,7 @@ const FlashCardPage = () => {
         .then(updatedDataFromServer => {
           console.log('Data updated on the server:', updatedDataFromServer);
         })
-        .catch(error => console.error('Error updating data on the server:', error))
+        .catch(err => console.error('Error: ', err));
     };
     
     const deleteCard = (cardId) => {
@@ -69,14 +83,15 @@ const FlashCardPage = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-    })
+      })
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        console.log('Data deleted on the server');
       })
-      .catch(error => console.error('Error deleting data on the server:', error));
+      .catch(err => console.error('Error: ', err));
+      
+      setCardInfo(cardInfo => cardInfo.filter(card => card.id !== cardId));
     }
 
     
@@ -90,7 +105,7 @@ const FlashCardPage = () => {
           setCardInfo(data);
         })
         .catch(error => console.error('Error fetching JSON:', error));
-    }, []);
+    }, [cardInfo]);
 
     return (
       <div className='flashCardPage'>
@@ -123,7 +138,7 @@ const FlashCardPage = () => {
       </div>
         <div className='flashCardRow'>
           {cardInfo.map(card => (
-            <div className='cardFrame' id='cardFrame'>
+            <div className='cardFrame' id={`cardFrame_${card.id}`}>
               <div className='status'>
                 <span>Status</span>
               </div>
@@ -138,6 +153,9 @@ const FlashCardPage = () => {
               </div>
               <div className='dateCreated'>
                 <span>Date created</span>
+              </div>
+              <div className='answerButtonFrame'>
+                <button onClick={() => {showAnswer(card)}}><span id='answerButText'>Show answer</span></button>
               </div>
               <div className='modificationOnCard' id={`modificationOnCard_${card.id}`}>
                 <button id={`editButton_${card.id}`} onClick={()=>{editCard(card)}}>Edit</button>
