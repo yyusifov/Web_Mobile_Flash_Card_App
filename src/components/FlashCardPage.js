@@ -4,7 +4,18 @@ import "./FlashCardPage.css"
 const FlashCardPage = () => {
     const [cardInfo, setCardInfo] = useState([]);
     const [dateUpdated, setNewDate] = useState(new Date().toLocaleTimeString());
+    const [initalUrl, setUrl] = useState("http://localhost:3000/cards");
 
+    const filterCards = () => {
+      const chosenStatus = document.getElementById("filter").value;
+      if(chosenStatus === "All"){
+        setUrl("http://localhost:3000/cards");
+      }
+      else{
+        const url = "http://localhost:3000/cards?status=" + chosenStatus;
+        setUrl(url);
+      }
+    }
 
     const showAnswer = (card) => {
       const cardFrame = document.getElementById(`cardFrame_${card.id}`);
@@ -50,12 +61,7 @@ const FlashCardPage = () => {
       }
     };
 
-    const editCard = (card) => {
-
-      const countryName = document.getElementById(`countryName_${card.id}`);
-    
-      const questionForCard = document.getElementById(`question_${card.id}`);
-    
+    const editCard = (card) => {   
       if(document.getElementById(`editButton_${card.id}`).textContent === "Edit"){
     
         document.getElementById(`editButton_${card.id}`).textContent = "Save";
@@ -73,10 +79,11 @@ const FlashCardPage = () => {
     
         const updatedData = {
           id: card.id,
-          countryName: countryName,
+          countryName: "countryName",
           flag: card.flag,
-          question: questionForCard,
-          capital: card.capital
+          question: "questionForCard",
+          answer: card.answer,
+          status: card.status
         };        
 
         updateOnFlashCardPage(updatedData);
@@ -92,7 +99,7 @@ const FlashCardPage = () => {
         countryName: countryName,
         flag: card.flag,
         question: questionForCard,
-        capital: card.capital
+        status: card.status
       };
     
       fetch(`http://localhost:3000/cards/${updatedData.id}`, {
@@ -131,7 +138,7 @@ const FlashCardPage = () => {
 
     
     useEffect(() => {
-      fetch('http://localhost:3000/cards')
+      fetch(initalUrl)
         .then(response => response.json())
         .then(data => {
           for(let i = 0; i < data.length; i++){
@@ -140,7 +147,7 @@ const FlashCardPage = () => {
           setCardInfo(data);
         })
         .catch(error => console.error('Error fetching JSON:', error));
-    }, []);
+    }, [initalUrl]);
 
     return (
       <div className='flashCardPage'>
@@ -159,7 +166,8 @@ const FlashCardPage = () => {
           <span>Add a new card</span>
         </button>
 
-        <select className='filtering'>
+        <select className='filtering' id="filter" onChange={filterCards}>
+          <option>All</option>
           <option>Learned</option>
           <option>Want to Learn</option>
           <option>Noted</option>
@@ -175,7 +183,7 @@ const FlashCardPage = () => {
           {cardInfo.map(card => (
             <div className='cardFrame' id={`cardFrame_${card.id}`}>
               <div className='status'>
-                <span>Status</span>
+                <span>{card.status}</span>
               </div>
               <div className="countryFlag">
                 <img className='flag' src={card.flag} alt="Country Flag"/>
