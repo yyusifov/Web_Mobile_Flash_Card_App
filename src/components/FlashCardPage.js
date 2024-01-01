@@ -3,19 +3,51 @@ import "./FlashCardPage.css"
 
 const FlashCardPage = () => {
     const [cardInfo, setCardInfo] = useState([]);
+    const [dateUpdated, setNewDate] = useState(new Date().toLocaleTimeString());
+
 
     const showAnswer = (card) => {
       const cardFrame = document.getElementById(`cardFrame_${card.id}`);
+      const buttonText = document.getElementById(`answerButText_${card.id}`);
+      const answerButtonFrame = document.getElementById(`answerButtonFrame_${card.id}`);
+      const modificationOnCard = document.getElementById(`modificationOnCard_${card.id}`);
+      const answerFrame = document.getElementById(`answerFrame_${card.id}`);
 
-      const buttonText = document.getElementById('answerButText');
-
-      if(buttonText.textContent === "Show answer"){
+      if (buttonText.textContent === "Show answer") {
+        cardFrame.style.transform = "rotateY(180deg)";
+        answerButtonFrame.style.transform = "rotateY(180deg)";
+        answerFrame.style.transform = "rotateY(180deg)";
         buttonText.textContent = "Show question";
-      }
-      else{
+      } else {
+        cardFrame.style.transform = "rotateY(0deg)";
+        answerButtonFrame.style.transform = "rotateY(0deg)";
+        answerFrame.style.transform = "rotateY(0deg)";
         buttonText.textContent = "Show answer";
+      }    
+
+      const childElementsOfCardFrame = cardFrame.children;
+
+      for (const element of childElementsOfCardFrame) {
+
+        if(buttonText.textContent === "Show question" && element !== answerButtonFrame){
+          element.style.display = 'none';
+          answerFrame.style.display = 'flex';
+        }
+        else {
+          
+          element.style.display = "flex";
+          
+          answerFrame.style.display = "none";
+
+          cardFrame.addEventListener("mouseenter", () => {
+            modificationOnCard.style.display = "flex";
+          });
+          
+          cardFrame.addEventListener("mouseleave", () => {
+            modificationOnCard.style.display = "none";
+          });
+        }
       }
-      cardFrame.style.transform = "rotateY(180deg)";
     };
 
     const editCard = (card) => {
@@ -75,6 +107,9 @@ const FlashCardPage = () => {
           console.log('Data updated on the server:', updatedDataFromServer);
         })
         .catch(err => console.error('Error: ', err));
+
+        const changeTimeAfterEdit = new Date().toLocaleTimeString();
+        setNewDate(changeTimeAfterEdit);
     };
     
     const deleteCard = (cardId) => {
@@ -105,7 +140,7 @@ const FlashCardPage = () => {
           setCardInfo(data);
         })
         .catch(error => console.error('Error fetching JSON:', error));
-    }, [cardInfo]);
+    }, []);
 
     return (
       <div className='flashCardPage'>
@@ -152,10 +187,13 @@ const FlashCardPage = () => {
                 <p>{card.question}</p>
               </div>
               <div className='dateCreated'>
-                <span>Date created</span>
+                <span>{dateUpdated}</span>
               </div>
-              <div className='answerButtonFrame'>
-                <button onClick={() => {showAnswer(card)}}><span id='answerButText'>Show answer</span></button>
+              <div className="answerFrame" id={`answerFrame_${card.id}`}>
+                <span id={`answer_${card.id}`}>{card.answer}</span>
+              </div>
+              <div id={`answerButtonFrame_${card.id}`}>
+                <button onClick={() => {showAnswer(card)}}><span id={`answerButText_${card.id}`}>Show answer</span></button>
               </div>
               <div className='modificationOnCard' id={`modificationOnCard_${card.id}`}>
                 <button id={`editButton_${card.id}`} onClick={()=>{editCard(card)}}>Edit</button>

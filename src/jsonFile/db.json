@@ -5,21 +5,21 @@
       "countryName": "Germany",
       "flag": "/countryFlags/Flag_of_Germany.svg",
       "question": "What is capital of Germany",
-      "capital": "Berlin"
+      "answer": "Berlin"
     },
     {
       "id": "3",
       "countryName": "Georgia",
       "flag": "/countryFlags/Flag_of_Georgia.svg",
-      "question": "What is capital of Georgia",
-      "capital": "Tiblisi"
+      "question": "What is cakfdkdspital of Georgia",
+      "answer": "Tiblisi"
     },
     {
       "id": "4",
       "countryName": "Gabon",
       "flag": "/countryFlags/Flag_of_Gabon.svg",
       "question": "What is capital of Gabon",
-      "capital": "Libreville"
+      "answer": "Libreville"
     }
   ],
   "messages": [
