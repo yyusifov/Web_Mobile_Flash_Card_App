@@ -4,7 +4,22 @@ import "./FlashCardPage.css"
 const FlashCardPage = () => {
     const [cardInfo, setCardInfo] = useState([]);
     const [dateUpdated, setNewDate] = useState();
-    const [initalUrl, setUrl] = useState("http://localhost:3000/cards");
+    const [initalUrl, setUrl] = useState("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
+
+    const sortCards = () => {
+
+      const valueToBeSorted = document.getElementById("sort").value;
+
+      if (valueToBeSorted === "Newest") {
+        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
+      } else if (valueToBeSorted === "Oldest") {
+        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=asc");
+      } else {
+        setUrl("http://localhost:3000/cards?_sort=Field&_order=asc");
+      }
+
+    };
+    
 
     const searchCard = () => {
       const searchValue = document.getElementById("searchedValue").value;
@@ -39,11 +54,13 @@ const FlashCardPage = () => {
         cardFrame.style.transform = "rotateY(180deg)";
         answerButtonFrame.style.transform = "rotateY(180deg)";
         answerFrame.style.transform = "rotateY(180deg)";
+        modificationOnCard.style.transform = "rotateY(180deg)";
         buttonText.textContent = "Show question";
       } else {
         cardFrame.style.transform = "rotateY(0deg)";
         answerButtonFrame.style.transform = "rotateY(0deg)";
         answerFrame.style.transform = "rotateY(0deg)";
+        modificationOnCard.style.transform = "rotateY(0deg)";
         buttonText.textContent = "Show answer";
       }    
 
@@ -81,14 +98,15 @@ const FlashCardPage = () => {
     
         document.getElementById(`editButton_${card.id}`).textContent = "Save";
     
-        document.getElementById(`countryName_${card.id}`).contentEditable = true;
+        document.getElementById(`answer_${card.id}`).contentEditable = true;
     
         document.getElementById(`question_${card.id}`).contentEditable = true;
+
       }
       else{
         document.getElementById(`editButton_${card.id}`).textContent = "Edit";
     
-        document.getElementById(`countryName_${card.id}`).contentEditable = false;
+        document.getElementById(`answer_${card.id}`).contentEditable = false;
     
         document.getElementById(`question_${card.id}`).contentEditable = false;
     
@@ -97,7 +115,7 @@ const FlashCardPage = () => {
           Field: card.Field,
           imgField: card.imgField,
           question: "questionForCard",
-          answer: card.answer,
+          answer: "answerForCard",
           status: card.status, 
           modificationDate: dateUpdated
         };        
@@ -108,12 +126,15 @@ const FlashCardPage = () => {
 
     const updateOnFlashCardPage = (card) => {
       const questionForCard = document.getElementById(`question_${card.id}`).textContent;
-    
+
+      const answerForCard = document.getElementById(`answer_${card.id}`).textContent;
+
       const updatedData = {
         id: card.id,
         Field: card.Field,
         imgField: card.imgField,
         question: questionForCard,
+        answer: answerForCard,
         status: card.status,
         modificationDate: dateUpdated
       };
@@ -161,7 +182,7 @@ const FlashCardPage = () => {
           setCardInfo(data);
         })
         .catch(error => console.error('Error fetching JSON:', error));
-    }, [initalUrl, cardInfo]);
+    }, [initalUrl]);
 
     return (
       <div className='flashCardPage'>
@@ -187,10 +208,10 @@ const FlashCardPage = () => {
           <option>Noted</option>
         </select>
 
-        <select className='sorting'>
-          <option>Last Modified</option>
-          <option>attribute 2</option>
-          <option>attribute 3</option>
+        <select className='sorting' id="sort" onChange={sortCards}>
+          <option>Newest</option>
+          <option>Oldest</option>
+          <option>Field Name</option>
         </select>
       </div>
           {cardInfo.map((card, index) => {
@@ -208,7 +229,7 @@ const FlashCardPage = () => {
                             <div className="fieldImage">
                               <img className='imgF' src={cardInfo[cardIndex].imgField} alt="Field Image"/>
                             </div>
-                            <div className="countryName" id={`countryName_${cardInfo[cardIndex].id}`}>
+                            <div className="fieldName" id={`fieldName_${cardInfo[cardIndex].id}`}>
                               <span>{cardInfo[cardIndex].Field}</span>
                             </div>
                             <div className='questionFrame' id={`question_${cardInfo[cardIndex].id}`}>
