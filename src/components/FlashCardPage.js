@@ -3,8 +3,71 @@ import "./FlashCardPage.css"
 
 const FlashCardPage = () => {
     const [cardInfo, setCardInfo] = useState([]);
+    const [lastId, setId] = useState("");
     const [dateUpdated, setNewDate] = useState();
     const [initalUrl, setUrl] = useState("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
+
+    const setEnvForNewCard = () => {
+      document.getElementById("newCard").style.display = "flex";
+
+      document.getElementById("flashCardCon").style.display = "none";
+    }
+    
+    const addNewCard = () => {
+
+      const changeTimeAfterEdit = new Date().getTime();
+
+      const question = document.getElementById("questionID").value;
+
+      const answer = document.getElementById("answerID").value;
+
+      const field = document.getElementById("fieldChoice").value;
+
+      let imgFieldT = "";
+      if(field === "Math"){
+        imgFieldT = "/fieldImages/Math.png";
+      }
+      else if(field === "Literature"){
+        imgFieldT = "/fieldImages/Literature.jpeg";
+      }
+      else if(field === "Sociology"){
+        imgFieldT = "/fieldImages/Sociology.png";
+      }
+      else if(field === "Physics"){
+        imgFieldT = "/fieldImages/Physics.jpg";
+      }
+      else{
+        imgFieldT = "/fieldImages/Chemistry.jpeg";
+      }
+
+      setId((parseInt(lastId) + 1).toString());
+      
+      var newObject = {
+        id: lastId,
+        Field: field,
+        imgField: imgFieldT,
+        question: question,
+        answer: answer,
+        status: "Want to Learn", 
+        modificationDate: changeTimeAfterEdit
+      };
+
+      fetch('http://localhost:3000/cards', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newObject),
+      }).then(response => response.json())
+        .then(addedDataFromServer => {
+          console.log('Data added on the server:', addedDataFromServer);
+        })
+        .catch(err => console.error('Error: ', err));
+
+        document.getElementById("newCard").style.display = "none";
+
+        document.getElementById("flashCardCon").style.display = "flex";
+    }
 
     const sortCards = () => {
 
@@ -24,7 +87,7 @@ const FlashCardPage = () => {
     const searchCard = () => {
       const searchValue = document.getElementById("searchedValue").value;
       if(searchValue.trim() === ""){
-        setUrl("http://localhost:3000/cards");
+        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
       }
       else{
         const url = "http://localhost:3000/cards?q=" + searchValue;
@@ -169,6 +232,8 @@ const FlashCardPage = () => {
       .catch(err => console.error('Error: ', err));
       
       setCardInfo(cardInfo => cardInfo.filter(card => card.id !== cardId));
+
+      setId((parseInt(lastId) - 1).toString());
     }
 
     
@@ -176,10 +241,15 @@ const FlashCardPage = () => {
       fetch(initalUrl)
         .then(response => response.json())
         .then(data => {
+          var maxId = 0;
           for(let i = 0; i < data.length; i++){
+            if(maxId < parseInt(data[i].id)){
+              maxId = parseInt(data[i].id);
+            }
             console.log(data[i].countryName + "\n" + data[i].flag + "\n" + data[i].capital);
           }
           setCardInfo(data);
+          setId((maxId + 1).toString());
         })
         .catch(error => console.error('Error fetching JSON:', error));
     }, [initalUrl]);
@@ -197,7 +267,7 @@ const FlashCardPage = () => {
           </div>
         </div>
       <div className='addCard'>
-        <button className='additionFrame'>
+        <button className='additionFrame' onClick={setEnvForNewCard}>
           <span>Add a new card</span>
         </button>
 
@@ -214,6 +284,21 @@ const FlashCardPage = () => {
           <option>Field Name</option>
         </select>
       </div>
+
+      <div id='newCard'>
+        <span>New Card</span>
+        <input id="questionID" type='text' placeholder='Question'/>
+        <input id="answerID" type='text' placeholder='Answer'/>
+        <select id='fieldChoice'>
+          <option>Math</option>
+          <option>Chemistry</option>
+          <option>Physics</option>
+          <option>Literature</option>
+          <option>Sociology</option>
+        </select>
+        <button id="saveCard" onClick={addNewCard}>Add a card</button>
+      </div>
+        <div id='flashCardCon'>
           {cardInfo.map((card, index) => {
               if ((index) % 5 === 0) {
                 return (
@@ -264,7 +349,7 @@ const FlashCardPage = () => {
                 );
               }
           })}
-
+        </div>
       </div>
     );
   };

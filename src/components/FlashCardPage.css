@@ -65,6 +65,11 @@
     justify-content: center;
     align-items: center;
   }
+
+  button.additionFrame:hover{
+    background-color: #61dafb;
+    cursor: pointer;
+  }
   
   div.modificationOnCard {
     display: none;
@@ -114,6 +119,49 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+  }
+
+
+
+  div#newCard{
+    display: none;
+    flex-direction: column;
+    width: 50%;
+    height: 20vw;
+    border: 1px solid black;
+    align-items: center;
+    row-gap: 10px;
+    transform: translateX(50%);
+  }
+
+  input#questionID{
+    width: 25vw;
+    height: 4vw;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  input#answerID{
+    width: 25vw;
+    height: 4vw;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  button#saveCard{
+    width: 10vw;
+    height: 3vw;
+  }
+
+  select#fieldChoice{
+    width: 25vw;
+    height: 4vw;
+    border: 1px solid black;
+  }
+
+  div#flashCardCon{
+    display: flex;
+    flex-direction: column;
   }
 
   div.fieldName{
