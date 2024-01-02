@@ -6,6 +6,17 @@ const FlashCardPage = () => {
     const [dateUpdated, setNewDate] = useState(new Date().toLocaleTimeString());
     const [initalUrl, setUrl] = useState("http://localhost:3000/cards");
 
+    const searchCard = () => {
+      const searchValue = document.getElementById("searchedValue").value;
+      if(searchValue.trim() === ""){
+        setUrl("http://localhost:3000/cards");
+      }
+      else{
+        const url = "http://localhost:3000/cards?q=" + searchValue;
+        setUrl(url);
+      }
+    }
+
     const filterCards = () => {
       const chosenStatus = document.getElementById("filter").value;
       if(chosenStatus === "All"){
@@ -153,11 +164,11 @@ const FlashCardPage = () => {
       <div className='flashCardPage'>
         <div className='searchBar'>
           <div className='searchFrame'>
-            <div className='icon'>
-              <img src={require("../assets/searchCardIcon.svg").default} alt='Search Icon' />
+            <div onClick={searchCard} className='icon'>
+              <img id="searchCard" src={require("../assets/searchCardIcon.svg").default} alt='Search Icon' />
             </div>
             <div className='inputText'>
-              <input type='text'/>
+              <input id="searchedValue" type='text'/>
             </div>
           </div>
         </div>
