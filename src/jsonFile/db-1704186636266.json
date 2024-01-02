@@ -22,7 +22,7 @@
       "flag": "/countryFlags/Flag_of_England.svg",
       "question": "What is capital of England?",
       "answer": "London",
-      "status": "Learned"
+      "status": "Noted"
     },
     {
       "id": "4",
@@ -70,7 +70,7 @@
       "flag": "/countryFlags/Flag_of_Antigua_and_Barbuda.svg",
       "question": "What is capital of Antigua and Barbuda?",
       "answer": "Saint John's",
-      "status": "Want to Learn"
+      "status": "Noted"
     },
     {
       "id": "10",
@@ -78,7 +78,7 @@
       "flag": "/countryFlags/Flag_of_Argentina.svg",
       "question": "What is capital of Argentina?",
       "answer": "Buenos Aires",
-      "status": "Learned"
+      "status": "Noted"
     },
     {
       "id": "11",
@@ -94,7 +94,7 @@
       "flag": "/countryFlags/Flag_of_Austria.svg",
       "question": "What is capital of Austria?",
       "answer": "Vienna",
-      "status": "Want to Learn"
+      "status": "Noted"
     },
     {
       "id": "13",
@@ -110,7 +110,7 @@
       "flag": "/countryFlags/Flag_of_Bahamas.svg",
       "question": "What is capital of Bahamas?",
       "answer": "Nassau",
-      "status": "Want to Learn"
+      "status": "Noted"
     },
     {
       "id": "15",
@@ -126,7 +126,7 @@
       "flag": "/countryFlags/Flag_of_Bangladesh.svg",
       "question": "What is capital of Bangladesh?",
       "answer": "Dhaka",
-      "status": "Learned"
+      "status": "Noted"
     },
     {
       "id": "17",
@@ -150,7 +150,7 @@
       "flag": "/countryFlags/Flag_of_Belgium.svg",
       "question": "What is capital of Belgium?",
       "answer": "Brussels",
-      "status": "Learned"
+      "status": "Noted"
     },
     {
       "id": "20",
@@ -158,7 +158,7 @@
       "flag": "/countryFlags/Flag_of_Belize.svg",
       "question": "What is capital of Belize?",
       "answer": "Belmopan",
-      "status": "Want to Learn"
+      "status": "Noted"
     },
     {
       "id": "21",
@@ -174,7 +174,7 @@
       "flag": "/countryFlags/Flag_of_Bhutan.svg",
       "question": "What is capital of Bhutan?",
       "answer": "Thimphu",
-      "status": "Want to Learn"
+      "status": "Noted"
     },
     {
       "id": "23",
@@ -182,22 +182,6 @@
       "flag": "/countryFlags/Flag_of_Bolivia.svg",
       "question": "What is capital of Bolivia?",
       "answer": "La Paz",
-      "status": "Learned"
-    },
-    {
-      "id": "24",
-      "countryName": "Botswana",
-      "flag": "/countryFlags/Flag_of_Botswana.svg",
-      "question": "What is capital of Botswana?",
-      "answer": "Gaborone",
-      "status": "Noted"
-    },
-    {
-      "id": "25",
-      "countryName": "Bosnia and Herzegovina",
-      "flag": "/countryFlags/Flag_of_Bosnia_and_Herzegovina.svg",
-      "question": "What is capital of Bolivia?",
-      "answer": "Sarajevo",
       "status": "Noted"
     }
   ],

@@ -179,37 +179,50 @@ const FlashCardPage = () => {
           <option>attribute 3</option>
         </select>
       </div>
-        <div className='flashCardRow'>
-          {cardInfo.map(card => (
-            <div className='cardFrame' id={`cardFrame_${card.id}`}>
-              <div className='status'>
-                <span>{card.status}</span>
-              </div>
-              <div className="countryFlag">
-                <img className='flag' src={card.flag} alt="Country Flag"/>
-              </div>
-              <div className="countryName" id={`countryName_${card.id}`}>
-                <span>{card.countryName}</span>
-              </div>
-              <div className='question' id={`question_${card.id}`}>
-                <p>{card.question}</p>
-              </div>
-              <div className='dateCreated'>
-                <span>{dateUpdated}</span>
-              </div>
-              <div className="answerFrame" id={`answerFrame_${card.id}`}>
-                <span id={`answer_${card.id}`}>{card.answer}</span>
-              </div>
-              <div id={`answerButtonFrame_${card.id}`}>
-                <button onClick={() => {showAnswer(card)}}><span id={`answerButText_${card.id}`}>Show answer</span></button>
-              </div>
-              <div className='modificationOnCard' id={`modificationOnCard_${card.id}`}>
-                <button id={`editButton_${card.id}`} onClick={()=>{editCard(card)}}>Edit</button>
-                <button onClick={() => {deleteCard(card.id)}}>Delete</button>
-              </div>
-            </div>
-          ))}
-        </div>
+          {cardInfo.map((card, index) => {
+              if ((index) % 5 === 0) {
+                return (
+                  <div className='flashCardRow' key={`row_${index}`}>
+                    {[0, 1, 2, 3, 4].map(offset => {
+                      const cardIndex = index + offset;
+                      if (cardInfo[cardIndex]) {
+                        return (
+                          <div className='cardFrame' id={`cardFrame_${cardInfo[cardIndex].id}`} key={`card_${cardInfo[cardIndex].id}`}>
+                            <div className='status'>
+                              <span>{cardInfo[cardIndex].status}</span>
+                            </div>
+                            <div className="countryFlag">
+                              <img className='flag' src={cardInfo[cardIndex].flag} alt="Country Flag"/>
+                            </div>
+                            <div className="countryName" id={`countryName_${cardInfo[cardIndex].id}`}>
+                              <span>{cardInfo[cardIndex].countryName}</span>
+                            </div>
+                            <div className='question' id={`question_${cardInfo[cardIndex].id}`}>
+                              <p>{cardInfo[cardIndex].question}</p>
+                            </div>
+                            <div className='dateCreated'>
+                              <span>{dateUpdated}</span>
+                            </div>
+                            <div className="answerFrame" id={`answerFrame_${cardInfo[cardIndex].id}`}>
+                              <span id={`answer_${cardInfo[cardIndex].id}`}>{cardInfo[cardIndex].answer}</span>
+                            </div>
+                            <div id={`answerButtonFrame_${cardInfo[cardIndex].id}`}>
+                              <button onClick={() => {showAnswer(cardInfo[cardIndex])}}><span id={`answerButText_${cardInfo[cardIndex].id}`}>Show answer</span></button>
+                            </div>
+                            <div className='modificationOnCard' id={`modificationOnCard_${cardInfo[cardIndex].id}`}>
+                              <button id={`editButton_${cardInfo[cardIndex].id}`} onClick={()=>{editCard(cardInfo[cardIndex])}}>Edit</button>
+                              <button onClick={() => {deleteCard(cardInfo[cardIndex].id)}}>Delete</button>
+                            </div>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                );
+              }
+          })}
+
       </div>
     );
   };
