@@ -2,203 +2,224 @@
   "cards": [
     {
       "id": "1",
-      "countryName": "Gabon",
-      "flag": "/countryFlags/Flag_of_Gabon.svg",
-      "question": "What is capital of Gabon?",
-      "answer": "Libreville",
-      "status": "Want to Learn"
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "What is the result of 5+8?",
+      "status": "Want to Learn",
+      "modificationDate": 1704202806821
     },
     {
       "id": "2",
-      "countryName": "Greece",
-      "flag": "/countryFlags/Flag_of_Greece.svg",
-      "question": "What is capital of Greece?",
-      "answer": "Atina",
-      "status": "Learned"
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the acchheleration due to gravity on Earth?",
+      "status": "Learned",
+      "modificationDate": 1704203088915
     },
     {
       "id": "3",
-      "countryName": "England",
-      "flag": "/countryFlags/Flag_of_England.svg",
-      "question": "What is capital of England?",
-      "answer": "London",
-      "status": "Learned"
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is the chemical symbol for gold?",
+      "status": "Learned",
+      "modificationDate": 1704203158945
     },
     {
       "id": "4",
-      "countryName": "Afghanistan",
-      "flag": "/countryFlags/Flag_of_Afghanistan.svg",
-      "question": "What is capital of Afghanistan?",
-      "answer": "Kabul",
-      "status": "Noted"
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the unit of electrical resistance?",
+      "status": "Learned",
+      "modificationDate": 1704203269398
     },
     {
       "id": "5",
-      "countryName": "Albania",
-      "flag": "/countryFlags/Flag_of_Albania.svg",
-      "question": "What is capital of Albania?",
-      "answer": "Tirana",
-      "status": "Noted"
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "If a rectangle has a length of 6 units and a width of 4 what is its area?",
+      "answer": "24 square units",
+      "status": "Want to Learn",
+      "modificationDate": 1704202234905
     },
     {
       "id": "6",
-      "countryName": "Algeria",
-      "flag": "/countryFlags/Flag_of_Algeria.svg",
-      "question": "What is capital of Algeria?",
-      "answer": "Algiers",
-      "status": "Noted"
-    },
-    {
-      "id": "7",
-      "countryName": "Andorra",
-      "flag": "/countryFlags/Flag_of_Andorra.svg",
-      "question": "What is capital of Andorra?",
-      "answer": "Andorra la Vella",
-      "status": "Noted"
-    },
-    {
-      "id": "8",
-      "countryName": "Angola",
-      "flag": "/countryFlags/Flag_of_Angola.svg",
-      "question": "What is capital of Angola?",
-      "answer": "Luanda",
-      "status": "Noted"
-    },
-    {
-      "id": "9",
-      "countryName": "Antigua_and_Barbuda",
-      "flag": "/countryFlags/Flag_of_Antigua_and_Barbuda.svg",
-      "question": "What is capital of Antigua and Barbuda?",
-      "answer": "Saint John's",
-      "status": "Want to Learn"
-    },
-    {
-      "id": "10",
-      "countryName": "Argentina",
-      "flag": "/countryFlags/Flag_of_Argentina.svg",
-      "question": "What is capital of Argentina?",
-      "answer": "Buenos Aires",
-      "status": "Learned"
-    },
-    {
-      "id": "11",
-      "countryName": "Australia",
-      "flag": "/countryFlags/Flag_of_Australia.svg",
-      "question": "What is capital of Australia?",
-      "answer": "Canberra",
-      "status": "Noted"
-    },
-    {
-      "id": "12",
-      "countryName": "Austria",
-      "flag": "/countryFlags/Flag_of_Austria.svg",
-      "question": "What is capital of Austria?",
-      "answer": "Vienna",
-      "status": "Want to Learn"
-    },
-    {
-      "id": "13",
-      "countryName": "Azerbaijan",
-      "flag": "/countryFlags/Flag_of_Azerbaijan.svg",
-      "question": "What is capital of Azerbaijan?",
-      "answer": "Baku",
-      "status": "Noted"
-    },
-    {
-      "id": "14",
-      "countryName": "Bahamas",
-      "flag": "/countryFlags/Flag_of_Bahamas.svg",
-      "question": "What is capital of Bahamas?",
-      "answer": "Nassau",
-      "status": "Want to Learn"
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is Avogadro's number?",
+      "answer": "6.022 x 10^23",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     },
     {
       "id": "15",
-      "countryName": "Bahrain",
-      "flag": "/countryFlags/Flag_of_Bahrain.svg",
-      "question": "What is capital of Bahrain?",
-      "answer": "Manama",
-      "status": "Noted"
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "answer": "William Shakespeare",
+      "status": "Noted",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "8",
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "What is the value of 3x7?",
+      "answer": "21",
+      "status": "Noted",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "9",
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is the pH value of a neutral solution?",
+      "answer": "7",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "10",
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What type of bond is formed when electrons are shared between two atoms?",
+      "answer": "Covalent bond",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "11",
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "In the electromagnetic spectrum, which type of wave has the shortest wavelength?",
+      "answer": "Gamma rays",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "12",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "Who wrote the novel 'To Kill a Mockingbird'?",
+      "answer": "Harper Lee",
+      "status": "Noted",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "13",
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "Who is considered the founding figure of sociology?",
+      "answer": "Auguste Comte",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "14",
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "Solve for z in the equation 2z+5=11.",
+      "answer": "z = 3",
+      "status": "Want to Learn",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "15",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "What literary term refers to the emotional atmosphere of a work of literature?",
+      "answer": "Mood",
+      "status": "Noted",
+      "modificationDate": 1704202234905
     },
     {
       "id": "16",
-      "countryName": "Bangladesh",
-      "flag": "/countryFlags/Flag_of_Bangladesh.svg",
-      "question": "What is capital of Bangladesh?",
-      "answer": "Dhaka",
-      "status": "Learned"
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is the chemical symbol for water?",
+      "answer": "H₂O",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     },
     {
       "id": "17",
-      "countryName": "Barbados",
-      "flag": "/countryFlags/Flag_of_Barbados.svg",
-      "question": "What is capital of Barbados?",
-      "answer": "Bridgetown",
-      "status": "Noted"
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the law that states that for every action, there is an equal and opposite reaction?",
+      "answer": "Newton's Third Law of Motion",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     },
     {
       "id": "18",
-      "countryName": "Belarus",
-      "flag": "/countryFlags/Flag_of_Belarus.svg",
-      "question": "What is capital of Belarus?",
-      "answer": "Minsk",
-      "status": "Noted"
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "What is the concept that refers to the shared customs, beliefs, and practices of a social group?",
+      "answer": "Culture",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     },
     {
       "id": "19",
-      "countryName": "Belgium",
-      "flag": "/countryFlags/Flag_of_Belgium.svg",
-      "question": "What is capital of Belgium?",
-      "answer": "Brussels",
-      "status": "Learned"
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "In Shakespeare's play 'Hamlet,' 'who is Hamlet's uncle?",
+      "answer": "Claudius",
+      "status": "Noted",
+      "modificationDate": 1704202234905
     },
     {
       "id": "20",
-      "countryName": "Belize",
-      "flag": "/countryFlags/Flag_of_Belize.svg",
-      "question": "What is capital of Belize?",
-      "answer": "Belmopan",
-      "status": "Want to Learn"
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "What is the genre of literature that blends elements of science fiction and fantasy?",
+      "answer": "Speculative fiction",
+      "status": "Noted",
+      "modificationDate": 1704202234905
     },
     {
       "id": "21",
-      "countryName": "Benin",
-      "flag": "/countryFlags/Flag_of_Benin.svg",
-      "question": "What is capital of Benin?",
-      "answer": "Porto-Novo",
-      "status": "Noted"
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "Who coined the term 'sociological imagination'?",
+      "answer": "C. Wright Mills",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     },
     {
       "id": "22",
-      "countryName": "Bhutan",
-      "flag": "/countryFlags/Flag_of_Bhutan.svg",
-      "question": "What is capital of Bhutan?",
-      "answer": "Thimphu",
-      "status": "Want to Learn"
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "What is the term for the central idea or message in a literary work?",
+      "answer": "Theme",
+      "status": "Noted",
+      "modificationDate": 1704202234905
     },
     {
       "id": "23",
-      "countryName": "Bolivia",
-      "flag": "/countryFlags/Flag_of_Bolivia.svg",
-      "question": "What is capital of Bolivia?",
-      "answer": "La Paz",
-      "status": "Learned"
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "What is the study of how people make sense of their everyday surroundings?",
+      "answer": "Ethnomethodology",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     },
     {
       "id": "24",
-      "countryName": "Botswana",
-      "flag": "/countryFlags/Flag_of_Botswana.svg",
-      "question": "What is capital of Botswana?",
-      "answer": "Gaborone",
-      "status": "Noted"
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the SI unit of force?",
+      "answer": "Newton (N)",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     },
     {
       "id": "25",
-      "countryName": "Bosnia and Herzegovina",
-      "flag": "/countryFlags/Flag_of_Bosnia_and_Herzegovina.svg",
-      "question": "What is capital of Bolivia?",
-      "answer": "Sarajevo",
-      "status": "Noted"
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "Which sociological perspective emphasizes the role of power and inequality in society?",
+      "answer": "Conflict theory",
+      "status": "Learned",
+      "modificationDate": 1704202234905
     }
   ],
   "messages": [

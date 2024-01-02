@@ -3,7 +3,7 @@ import "./FlashCardPage.css"
 
 const FlashCardPage = () => {
     const [cardInfo, setCardInfo] = useState([]);
-    const [dateUpdated, setNewDate] = useState(new Date().toLocaleTimeString());
+    const [dateUpdated, setNewDate] = useState();
     const [initalUrl, setUrl] = useState("http://localhost:3000/cards");
 
     const searchCard = () => {
@@ -72,7 +72,11 @@ const FlashCardPage = () => {
       }
     };
 
-    const editCard = (card) => {   
+    const editCard = (card) => {  
+
+      const changeTimeAfterEdit = new Date().getTime();
+      setNewDate(changeTimeAfterEdit); 
+      
       if(document.getElementById(`editButton_${card.id}`).textContent === "Edit"){
     
         document.getElementById(`editButton_${card.id}`).textContent = "Save";
@@ -90,11 +94,12 @@ const FlashCardPage = () => {
     
         const updatedData = {
           id: card.id,
-          countryName: "countryName",
-          flag: card.flag,
+          Field: card.Field,
+          imgField: card.imgField,
           question: "questionForCard",
           answer: card.answer,
-          status: card.status
+          status: card.status, 
+          modificationDate: dateUpdated
         };        
 
         updateOnFlashCardPage(updatedData);
@@ -102,15 +107,15 @@ const FlashCardPage = () => {
     };
 
     const updateOnFlashCardPage = (card) => {
-      const countryName = document.getElementById(`countryName_${card.id}`).textContent;
       const questionForCard = document.getElementById(`question_${card.id}`).textContent;
     
       const updatedData = {
         id: card.id,
-        countryName: countryName,
-        flag: card.flag,
+        Field: card.Field,
+        imgField: card.imgField,
         question: questionForCard,
-        status: card.status
+        status: card.status,
+        modificationDate: dateUpdated
       };
     
       fetch(`http://localhost:3000/cards/${updatedData.id}`, {
@@ -126,8 +131,6 @@ const FlashCardPage = () => {
         })
         .catch(err => console.error('Error: ', err));
 
-        const changeTimeAfterEdit = new Date().toLocaleTimeString();
-        setNewDate(changeTimeAfterEdit);
     };
     
     const deleteCard = (cardId) => {
@@ -158,7 +161,7 @@ const FlashCardPage = () => {
           setCardInfo(data);
         })
         .catch(error => console.error('Error fetching JSON:', error));
-    }, [initalUrl]);
+    }, [initalUrl, cardInfo]);
 
     return (
       <div className='flashCardPage'>
@@ -185,7 +188,7 @@ const FlashCardPage = () => {
         </select>
 
         <select className='sorting'>
-          <option>attribute 1</option>
+          <option>Last Modified</option>
           <option>attribute 2</option>
           <option>attribute 3</option>
         </select>
@@ -202,17 +205,24 @@ const FlashCardPage = () => {
                             <div className='status'>
                               <span>{cardInfo[cardIndex].status}</span>
                             </div>
-                            <div className="countryFlag">
-                              <img className='flag' src={cardInfo[cardIndex].flag} alt="Country Flag"/>
+                            <div className="fieldImage">
+                              <img className='imgF' src={cardInfo[cardIndex].imgField} alt="Field Image"/>
                             </div>
                             <div className="countryName" id={`countryName_${cardInfo[cardIndex].id}`}>
-                              <span>{cardInfo[cardIndex].countryName}</span>
+                              <span>{cardInfo[cardIndex].Field}</span>
                             </div>
-                            <div className='question' id={`question_${cardInfo[cardIndex].id}`}>
+                            <div className='questionFrame' id={`question_${cardInfo[cardIndex].id}`}>
                               <p>{cardInfo[cardIndex].question}</p>
                             </div>
                             <div className='dateCreated'>
-                              <span>{dateUpdated}</span>
+                              <span>{new Date(cardInfo[cardIndex].modificationDate).toLocaleString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric',
+                                hour: 'numeric',
+                                minute: 'numeric',
+                                hour12: true,
+                              })}</span>
                             </div>
                             <div className="answerFrame" id={`answerFrame_${cardInfo[cardIndex].id}`}>
                               <span id={`answer_${cardInfo[cardIndex].id}`}>{cardInfo[cardIndex].answer}</span>
