@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Web_Mobile_Flash_Card_App/static/css/main.576b2560.css",
+    "main.js": "/Web_Mobile_Flash_Card_App/static/js/main.56b49b3e.js",
+    "static/js/787.279fd6ed.chunk.js": "/Web_Mobile_Flash_Card_App/static/js/787.279fd6ed.chunk.js",
+    "static/media/searchCardIcon.svg": "/Web_Mobile_Flash_Card_App/static/media/searchCardIcon.eb142c43a771e1ecd5118983d2318bfb.svg",
+    "index.html": "/Web_Mobile_Flash_Card_App/index.html",
+    "main.576b2560.css.map": "/Web_Mobile_Flash_Card_App/static/css/main.576b2560.css.map",
+    "main.56b49b3e.js.map": "/Web_Mobile_Flash_Card_App/static/js/main.56b49b3e.js.map",
+    "787.279fd6ed.chunk.js.map": "/Web_Mobile_Flash_Card_App/static/js/787.279fd6ed.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.576b2560.css",
+    "static/js/main.56b49b3e.js"
+  ]
+}
