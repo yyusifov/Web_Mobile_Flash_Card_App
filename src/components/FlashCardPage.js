@@ -77,8 +77,6 @@ const FlashCardPage = () => {
       document.getElementById("newCard").style.display = "none";
 
       document.getElementById("flashCardCon").style.display = "flex";
-
-
     }
 
     const sortCards = () => {
@@ -114,9 +112,9 @@ const FlashCardPage = () => {
     
 
     const searchCard = () => {
-      const searchValue = document.getElementById("searchedValue").value;
-      setSearchValue(searchValue);
-      const url = "http://localhost:3000/cards?q=" + searchValue + "&_sort=modificationDate&_order=desc";
+      const searchValue1 = document.getElementById("searchedValue").value;
+      setSearchValue(searchValue1);
+      const url = "http://localhost:3000/cards?q=" + searchValue1 + "&_sort=modificationDate&_order=desc";
       setUrl(url);
       document.getElementById("sort").value = "Newest";
       document.getElementById("filter").value = "All";
@@ -291,7 +289,6 @@ const FlashCardPage = () => {
       
       setCardInfo(cardInfo => cardInfo.filter(card => card.id !== cardId));
 
-      setId((parseInt(lastId) - 1).toString());
     }
 
     
