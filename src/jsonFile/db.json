@@ -1,0 +1,273 @@
+{
+  "cards": [
+    {
+      "id": "1",
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "What is the result of 5+8?",
+      "answer": "13",
+      "status": "Noted",
+      "modificationDate": 1704306573276
+    },
+    {
+      "id": "2",
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the acchheleration due to gravity on Earth?",
+      "answer": "9.8 m/s²",
+      "status": "Learned",
+      "modificationDate": 1704290009104
+    },
+    {
+      "id": "3",
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is the chemical symbol for gold?",
+      "answer": "Au",
+      "status": "Noted",
+      "modificationDate": 1704283386870
+    },
+    {
+      "id": "4",
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the unit of electrical resistance?",
+      "answer": "Ohm (Ω)",
+      "status": "Noted",
+      "modificationDate": 1704283188636
+    },
+    {
+      "id": "5",
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "If a rectangle has a length of 6 units and a width of 4 what is its area?",
+      "answer": "24 square units",
+      "status": "Want to Learn",
+      "modificationDate": 1704283578295
+    },
+    {
+      "id": "6",
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is Avogadro's number?",
+      "answer": "6.022 x 10^23",
+      "status": "Want to Learn",
+      "modificationDate": 1704301741750
+    },
+    {
+      "id": "15",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "answer": "William Shakespeare",
+      "status": "Noted",
+      "modificationDate": 1704276799547
+    },
+    {
+      "id": "8",
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "What is the value of 3x7?",
+      "answer": "21",
+      "status": "Noted",
+      "modificationDate": 1704276606043
+    },
+    {
+      "id": "9",
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is the pH value of a neutral solution?",
+      "answer": "7",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "10",
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What type of bond is formed when electrons are shared between two atoms?",
+      "answer": "Covalent bond",
+      "status": "Learned",
+      "modificationDate": 1704283528269
+    },
+    {
+      "id": "11",
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "In the electromagnetic spectrum, which type of wave has the shortest wavelength?",
+      "answer": "Gamma rays",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "12",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "Who wrote the novel 'To Kill a Mockingbird'?",
+      "answer": "Harper Lee",
+      "status": "Want to Learn",
+      "modificationDate": 1704283700957
+    },
+    {
+      "id": "13",
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "Who is considered the founding figure of sociology?",
+      "answer": "Auguste Comte",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "14",
+      "Field": "Math",
+      "imgField": "/fieldImages/Math.png",
+      "question": "Solve for z in the equation 2z+5=11.",
+      "answer": "z = 3",
+      "status": "Learned",
+      "modificationDate": 1704306754806
+    },
+    {
+      "id": "15",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "What literary term refers to the emotional atmosphere of a work of literature?",
+      "answer": "Mood",
+      "status": "Noted",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "16",
+      "Field": "Chemistry",
+      "imgField": "/fieldImages/Chemistry.jpeg",
+      "question": "What is the chemical symbol for water?",
+      "answer": "H₂O",
+      "status": "Learned",
+      "modificationDate": 1704285082830
+    },
+    {
+      "id": "17",
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the law that states that for every action, there is an equal and opposite reaction?",
+      "answer": "Newton's Third Law of Motion",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "18",
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "What is the concept that refers to the shared customs, beliefs, and practices of a social group?",
+      "answer": "Culture",
+      "status": "Want to Learn",
+      "modificationDate": 1704283585830
+    },
+    {
+      "id": "19",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "In Shakespeare's play 'Hamlet,' 'who is Hamlet's uncle?",
+      "answer": "Claudius",
+      "status": "Noted",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "20",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "What is the genre of literature that blends elements of science fiction and fantasy?",
+      "answer": "Speculative fiction",
+      "status": "Noted",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "21",
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "Who coined the term 'sociological imagination'?",
+      "answer": "C. Wright Mills",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "22",
+      "Field": "Literature",
+      "imgField": "/fieldImages/Literature.jpeg",
+      "question": "What is the term for the central idea or message in a literary work?",
+      "answer": "Theme",
+      "status": "Noted",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "23",
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "What is the study of how people make sense of their everyday surroundings?",
+      "answer": "Ethnomethodology",
+      "status": "Learned",
+      "modificationDate": 1704202234905
+    },
+    {
+      "id": "24",
+      "Field": "Physics",
+      "imgField": "/fieldImages/Physics.jpg",
+      "question": "What is the SI unit of force?",
+      "answer": "Newton (N)",
+      "status": "Learned",
+      "modificationDate": 1704301722236
+    },
+    {
+      "id": "25",
+      "Field": "Sociology",
+      "imgField": "/fieldImages/Sociology.png",
+      "question": "Which sociological perspective emphasizes the role of power and inequality in society?",
+      "answer": "Conflict theory",
+      "status": "Want to Learn",
+      "modificationDate": 1704283694713
+    }
+  ],
+  "messages": [
+    {
+      "subject": "Homework 2 ",
+      "email": "yyusifov@a",
+      "messageContent": "jksdkjjdsfjdfssd",
+      "id": 1
+    },
+    {
+      "subject": "Homework 2 asdsad",
+      "email": "yyusifov@asadsad",
+      "messageContent": "jksdkjjdsfjdfssdasdsdsadasd",
+      "id": 2
+    },
+    {
+      "subject": "Homework 2 asdsad",
+      "email": "yyusifov@asadsad",
+      "messageContent": "jksdkjjdsfjdfssdasdsdsadasd",
+      "id": 3
+    },
+    {
+      "subject": "Homework 2 asdsad",
+      "email": "yyusifov@asadsad",
+      "messageContent": "jksdkjjdsfjdfssdasdsdsadasd",
+      "id": 4
+    },
+    {
+      "subject": "hjhsahjadsjkasdj",
+      "email": "uhsadhuhasd@jdshbgdsf",
+      "messageContent": "kdnkjdfsjdfnjfdsj",
+      "id": 5
+    },
+    {
+      "subject": "",
+      "email": "",
+      "messageContent": "hhj",
+      "id": 6
+    },
+    {
+      "subject": "ujdsa",
+      "email": "kjsdakjsadsadjkkn",
+      "messageContent": "kjsdajksad",
+      "id": 7
+    }
+  ]
+}

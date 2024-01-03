@@ -1,0 +1,84 @@
+div.contactBody{
+    display: flex;
+    flex-direction: column;
+}
+
+div.contactForm{
+    display: flex;
+    flex-direction: column;
+}
+
+form#conForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+}
+
+input#subject{
+    border: 0.2px solid blueviolet;
+    border-radius: 1vw;
+    width: 100%;
+}
+
+input#emailText{
+    border: 0.2px solid blueviolet;
+    border-radius: 1vw;
+    width: 100%;
+}
+
+input#messageContent{
+    border: 0.2px solid blueviolet;
+    border-radius: 1vw;
+    height: 10vw;
+    width: 100%;
+}
+input{
+    border: 0;
+    outline: 0;
+    font-family: Kadwa;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-left: 5px;
+  }
+  div.inputForMessage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  div.containerForInput{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    padding: 2vw;
+    border-radius: 10px;
+    border: 1px solid blueviolet;
+    row-gap: 10px;
+    box-shadow: 5px 5px 5px 5px blueviolet;
+
+  }
+
+  input#submitBut{
+    width: 20%;
+    height: 13%;
+    border-radius: 10px;
+    border: 1px solid blueviolet;
+  }
+
+  input#submitBut:hover{
+    cursor: pointer;
+    background-color: blueviolet;
+    color: azure;
+  }
+
+  label{
+    padding-left: 10px;
+  }
