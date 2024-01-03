@@ -37,16 +37,25 @@ const Contact = () => {
         <div className="contactBody">
             <div className="contactForm">
                 <form id="conForm">
-                    <label htmlFor="subject">Subject</label>
-                    <input id="subject" type="text" placeholder={"Insert Subject"} required/>
+                  <div className="containerForInput">
+                    <div className="inputForMessage">
+                      <label htmlFor="subject">Subject</label>
+                      <input id="subject" type="text" placeholder={"Insert Subject"} required/>
+                    </div>
 
-                    <label htmlFor="emailText">Email</label>
-                    <input id="emailText" type="email" placeholder={"Insert Email"} required/>
+                    <div className="inputForMessage">
+                      <label htmlFor="emailText">Email</label>
+                      <input id="emailText" type="email" placeholder={"Insert Email"} required/>
+                    </div>
 
-                    <label htmlFor="messageContent">Content</label>
-                    <input id="messageContent" type="text" placeholder={"Insert Content"} required/>
+                    <div className="inputForMessage">
+                      <label htmlFor="messageContent">Content</label>
+                      <input id="messageContent" type="text" placeholder={"Insert Content"} required/>
+                    </div>
 
-                    <input type="submit" onClick={clickSubmit}/>
+
+                    <input id="submitBut" type="submit" onClick={clickSubmit}/>
+                  </div>
                 </form>
             </div>
         </div>

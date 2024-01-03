@@ -28,7 +28,7 @@
   .cardFrame{
     width:16vw;
     height: 30vw;
-    background-color: #61dafb;
+    background-color: blueviolet;
     border-radius: 1vw;
     padding: 0.3vw;
     display: flex;
@@ -67,8 +67,12 @@
   }
 
   button.additionFrame:hover{
-    background-color: #61dafb;
+    background-color: blueviolet;
     cursor: pointer;
+  }
+
+  button.additionFrame:hover>span{
+    color:azure
   }
   
   div.modificationOnCard {
@@ -153,10 +157,31 @@
     height: 3vw;
   }
 
+  button.editDelBut{
+    width: 5vw;
+    height: 3vw;
+  }
+
+  button{
+    border-radius: 5px;
+  }
+
   select#fieldChoice{
     width: 25vw;
     height: 4vw;
     border: 1px solid black;
+  }
+
+  button:hover{
+    cursor: pointer;
+  }
+
+  button.editDelBut:hover{
+    opacity: 0.8;
+  }
+
+  button.showAns:hover{
+    opacity: 0.8;
   }
 
   div#flashCardCon{
@@ -185,6 +210,22 @@
     flex-direction: row;
     width: 100%;
     justify-content: center;
+  }
+
+  span{
+    color: azure;
+  }
+  
+  p.quest{
+    color: azure;
+  }
+  
+  span.newCard{
+    color: black;
+  }
+
+  span.answerBut{
+    color: black;
   }
 
   div.radioInput{

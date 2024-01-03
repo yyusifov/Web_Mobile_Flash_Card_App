@@ -5,6 +5,9 @@ const FlashCardPage = () => {
     const [cardInfo, setCardInfo] = useState([]);
     const [lastId, setId] = useState("");
     const [dateUpdated, setNewDate] = useState();
+    const [searchValue, setSearchValue] = useState("");
+    const [filterValue, setFilterValue] = useState("All");
+    const [sortValue, setSortValue] = useState("_sort=modificationDate&_order=desc");
     const [initalUrl, setUrl] = useState("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
 
     const setEnvForNewCard = () => {
@@ -52,7 +55,7 @@ const FlashCardPage = () => {
         modificationDate: changeTimeAfterEdit
       };
 
-      fetch('http://localhost:3000/cards', {
+      fetch('http://localhost:3000/cards?_sort=modificationDate&_order=desc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -82,12 +85,29 @@ const FlashCardPage = () => {
 
       const valueToBeSorted = document.getElementById("sort").value;
 
+      setSortValue(valueToBeSorted);
+
       if (valueToBeSorted === "Newest") {
-        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
+        setSortValue("_sort=modificationDate&_order=desc");
+        if(filterValue === "All"){
+          const url = "http://localhost:3000/cards?q=" + searchValue + "&" + "_sort=modificationDate&_order=desc";
+          setUrl(url);
+        }
+        else{
+          const url = "http://localhost:3000/cards?q=" + searchValue + "&status=" + filterValue + "&" + "_sort=modificationDate&_order=desc";
+          setUrl(url);
+        }
+
       } else if (valueToBeSorted === "Oldest") {
-        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=asc");
-      } else {
-        setUrl("http://localhost:3000/cards?_sort=Field&_order=asc");
+        setSortValue("_sort=modificationDate&_order=asc");
+        if(filterValue === "All"){
+          const url = "http://localhost:3000/cards?q=" + searchValue + "&" + "_sort=modificationDate&_order=asc";
+          setUrl(url);
+        }
+        else{
+          const url = "http://localhost:3000/cards?q=" + searchValue + "&status=" + filterValue + "&" + "_sort=modificationDate&_order=asc";
+          setUrl(url);
+        }
       }
 
     };
@@ -95,24 +115,28 @@ const FlashCardPage = () => {
 
     const searchCard = () => {
       const searchValue = document.getElementById("searchedValue").value;
-      if(searchValue.trim() === ""){
-        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
-      }
-      else{
-        const url = "http://localhost:3000/cards?q=" + searchValue;
-        setUrl(url);
-      }
+      setSearchValue(searchValue);
+      const url = "http://localhost:3000/cards?q=" + searchValue + "&_sort=modificationDate&_order=desc";
+      setUrl(url);
+      document.getElementById("sort").value = "Newest";
+      document.getElementById("filter").value = "All";
     }
 
     const filterCards = () => {
       const chosenStatus = document.getElementById("filter").value;
+      setFilterValue(chosenStatus);
       if(chosenStatus === "All"){
-        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
-      }
-      else{
-        const url = "http://localhost:3000/cards?status=" + chosenStatus;
+        const url = "http://localhost:3000/cards?q=" + searchValue + "&" + sortValue;
         setUrl(url);
       }
+      else{
+        const url = "http://localhost:3000/cards?q=" + searchValue + "&status=" + chosenStatus + "&" + sortValue;
+        setUrl(url);
+        setCardInfo(cardInfo => cardInfo.filter(card => {
+          return card.status === chosenStatus;
+        }));
+      }
+      
     }
 
     const showAnswer = (card) => {
@@ -216,7 +240,7 @@ const FlashCardPage = () => {
       else if(document.getElementById(`Learned_${card.id}`).checked){
         status = "Learned";
       }
-      else{
+      else if(document.getElementById(`Noted_${card.id}`).checked){
         status = "Noted";
       }
 
@@ -283,7 +307,9 @@ const FlashCardPage = () => {
             console.log(data[i].countryName + "\n" + data[i].flag + "\n" + data[i].capital);
           }
           setCardInfo(data);
-          setId((maxId + 1).toString());
+          if(initalUrl === "http://localhost:3000/cards?_sort=modificationDate&_order=desc"){
+            setId((maxId + 1).toString());
+          }
         })
         .catch(error => console.error('Error fetching JSON:', error));
     }, [initalUrl]);
@@ -296,13 +322,13 @@ const FlashCardPage = () => {
               <img id="searchCard" src={require("../assets/searchCardIcon.svg").default} alt='Search Icon' />
             </div>
             <div className='inputText'>
-              <input id="searchedValue" type='text'/>
+              <input id="searchedValue" placeholder="Search" type='text'/>
             </div>
           </div>
         </div>
       <div className='addCard'>
         <button className='additionFrame' onClick={setEnvForNewCard}>
-          <span>Add a new card</span>
+          <span className='newCard'>Add a new card</span>
         </button>
 
         <select className='filtering' id="filter" onChange={filterCards}>
@@ -315,7 +341,6 @@ const FlashCardPage = () => {
         <select className='sorting' id="sort" onChange={sortCards}>
           <option>Newest</option>
           <option>Oldest</option>
-          <option>Field Name</option>
         </select>
       </div>
 
@@ -366,7 +391,7 @@ const FlashCardPage = () => {
                               <span>{cardInfo[cardIndex].Field}</span>
                             </div>
                             <div className='questionFrame' id={`question_${cardInfo[cardIndex].id}`}>
-                              <p>{cardInfo[cardIndex].question}</p>
+                              <p className='quest'>{cardInfo[cardIndex].question}</p>
                             </div>
                             <div className='dateCreated'>
                               <span>{new Date(cardInfo[cardIndex].modificationDate).toLocaleString('en-US', {
@@ -382,11 +407,11 @@ const FlashCardPage = () => {
                               <span id={`answer_${cardInfo[cardIndex].id}`}>{cardInfo[cardIndex].answer}</span>
                             </div>
                             <div id={`answerButtonFrame_${cardInfo[cardIndex].id}`}>
-                              <button onClick={() => {showAnswer(cardInfo[cardIndex])}}><span id={`answerButText_${cardInfo[cardIndex].id}`}>Show answer</span></button>
+                              <button className="showAns" onClick={() => {showAnswer(cardInfo[cardIndex])}}><span className="answerBut" id={`answerButText_${cardInfo[cardIndex].id}`}>Show answer</span></button>
                             </div>
                             <div className='modificationOnCard' id={`modificationOnCard_${cardInfo[cardIndex].id}`}>
-                              <button id={`editButton_${cardInfo[cardIndex].id}`} onClick={()=>{editCard(cardInfo[cardIndex])}}>Edit</button>
-                              <button onClick={() => {deleteCard(cardInfo[cardIndex].id)}}>Delete</button>
+                              <button className="editDelBut" id={`editButton_${cardInfo[cardIndex].id}`} onClick={()=>{editCard(cardInfo[cardIndex])}}>Edit</button>
+                              <button className="editDelBut" onClick={() => {deleteCard(cardInfo[cardIndex].id)}}>Delete</button>
                             </div>
                           </div>
                         );
