@@ -53,20 +53,29 @@ const FlashCardPage = () => {
       };
 
       fetch('http://localhost:3000/cards', {
-        method: 'POST', 
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(newObject),
-      }).then(response => response.json())
-        .then(addedDataFromServer => {
-          console.log('Data added on the server:', addedDataFromServer);
-        })
-        .catch(err => console.error('Error: ', err));
+      })
+      .then(response => response.json())
+      .then(addedDataFromServer => {
+        console.log('Data added on the server:', addedDataFromServer);
+        fetch(initalUrl)
+          .then(response => response.json())
+          .then(data => {
+            setCardInfo(data);
+          })
+          .catch(error => console.error('Error fetching JSON:', error));
+      })
+      .catch(err => console.error('Error: ', err));
 
-        document.getElementById("newCard").style.display = "none";
+      document.getElementById("newCard").style.display = "none";
 
-        document.getElementById("flashCardCon").style.display = "flex";
+      document.getElementById("flashCardCon").style.display = "flex";
+
+
     }
 
     const sortCards = () => {
@@ -98,7 +107,7 @@ const FlashCardPage = () => {
     const filterCards = () => {
       const chosenStatus = document.getElementById("filter").value;
       if(chosenStatus === "All"){
-        setUrl("http://localhost:3000/cards");
+        setUrl("http://localhost:3000/cards?_sort=modificationDate&_order=desc");
       }
       else{
         const url = "http://localhost:3000/cards?status=" + chosenStatus;
@@ -164,14 +173,22 @@ const FlashCardPage = () => {
         document.getElementById(`answer_${card.id}`).contentEditable = true;
     
         document.getElementById(`question_${card.id}`).contentEditable = true;
+        
+        document.getElementById(`statusDefiner_${card.id}`).style.display = "flex";
 
+        document.getElementById(`currentStatus_${card.id}`).style.display = "none";
       }
       else{
         document.getElementById(`editButton_${card.id}`).textContent = "Edit";
     
         document.getElementById(`answer_${card.id}`).contentEditable = false;
     
+        document.getElementById(`statusDefiner_${card.id}`).style.display = "none";
+
         document.getElementById(`question_${card.id}`).contentEditable = false;
+
+        document.getElementById(`currentStatus_${card.id}`).style.display = "flex";
+
     
         const updatedData = {
           id: card.id,
@@ -192,13 +209,24 @@ const FlashCardPage = () => {
 
       const answerForCard = document.getElementById(`answer_${card.id}`).textContent;
 
+      let status = card.status;
+      if(document.getElementById(`wantToLearn_${card.id}`).checked){
+        status = "Want to Learn";
+      }
+      else if(document.getElementById(`Learned_${card.id}`).checked){
+        status = "Learned";
+      }
+      else{
+        status = "Noted";
+      }
+
       const updatedData = {
         id: card.id,
         Field: card.Field,
         imgField: card.imgField,
         question: questionForCard,
         answer: answerForCard,
-        status: card.status,
+        status: status,
         modificationDate: dateUpdated
       };
     
@@ -212,6 +240,12 @@ const FlashCardPage = () => {
         .then(response => response.json())
         .then(updatedDataFromServer => {
           console.log('Data updated on the server:', updatedDataFromServer);
+          fetch(initalUrl)
+          .then(response => response.json())
+          .then(data => {
+            setCardInfo(data);
+          })
+          .catch(error => console.error('Error fetching JSON:', error));
         })
         .catch(err => console.error('Error: ', err));
 
@@ -309,7 +343,21 @@ const FlashCardPage = () => {
                         return (
                           <div className='cardFrame' id={`cardFrame_${cardInfo[cardIndex].id}`} key={`card_${cardInfo[cardIndex].id}`}>
                             <div className='status'>
-                              <span>{cardInfo[cardIndex].status}</span>
+                              <span id={`currentStatus_${cardInfo[cardIndex].id}`}>{cardInfo[cardIndex].status}</span>
+                              <div className="statusDefiner" id={`statusDefiner_${cardInfo[cardIndex].id}`}>
+                                <div className='radioInput'>
+                                  <input class="radioType" type='radio' id={`wantToLearn_${cardInfo[cardIndex].id}`} name={`setStatus_${cardInfo[cardIndex].id}`}/>
+                                  <label for={`wantToLearn_${cardInfo[cardIndex].id}`}>Want to Learn</label>
+                                </div>
+                                <div className='radioInput'>
+                                  <input class="radioType" type='radio' id={`Learned_${cardInfo[cardIndex].id}`} name={`setStatus_${cardInfo[cardIndex].id}`}/>
+                                  <label for={`Learned_${cardInfo[cardIndex].id}`}>Learned</label>
+                                </div>
+                                <div className='radioInput'>
+                                  <input class="radioType" type='radio' id={`Noted_${cardInfo[cardIndex].id}`} name={`setStatus_${cardInfo[cardIndex].id}`}/>
+                                  <label for={`Noted_${cardInfo[cardIndex].id}`}>Noted</label>
+                                </div>
+                              </div>
                             </div>
                             <div className="fieldImage">
                               <img className='imgF' src={cardInfo[cardIndex].imgField} alt="Field Image"/>

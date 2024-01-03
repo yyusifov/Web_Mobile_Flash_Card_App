@@ -6,8 +6,8 @@
       "imgField": "/fieldImages/Math.png",
       "question": "What is the result of 5+8?",
       "answer": "13",
-      "status": "Want to Learn",
-      "modificationDate": 1704215391165
+      "status": "Learned",
+      "modificationDate": 1704275928216
     },
     {
       "id": "2",
@@ -23,18 +23,18 @@
       "Field": "Chemistry",
       "imgField": "/fieldImages/Chemistry.jpeg",
       "question": "What is the chemical symbol for gold?",
-      "status": "Learned",
       "answer": "Au",
-      "modificationDate": 1704203158945
+      "status": "Want to Learn",
+      "modificationDate": 1704275327203
     },
     {
       "id": "4",
       "Field": "Physics",
       "imgField": "/fieldImages/Physics.jpg",
       "question": "What is the unit of electrical resistance?",
-      "status": "Learned",
       "answer": "Ohm (Ω)",
-      "modificationDate": 1704203269398
+      "status": "Noted",
+      "modificationDate": 1704276388751
     },
     {
       "id": "5",
