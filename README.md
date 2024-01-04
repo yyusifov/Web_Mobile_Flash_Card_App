@@ -20,7 +20,7 @@ git clone https://github.com/yyusifov/Web_Mobile_Flash_Card_App.git
 ### 2. Navigate to the Project Directory
 
 cd Web_Mobile_Flash_Card_App
-
+ 
 ### 3.  Install Dependencies
 
 npm install
