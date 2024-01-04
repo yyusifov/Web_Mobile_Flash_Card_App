@@ -309,7 +309,7 @@ const FlashCardPage = () => {
           }
         })
         .catch(error => console.error('Error fetching JSON:', error));
-    }, [initalUrl]);
+    }, [initalUrl,sortValue, filterValue, searchValue]);
 
     return (
       <div className='flashCardPage'>
