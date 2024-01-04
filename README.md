@@ -15,7 +15,6 @@ Make sure the following prerequisites are installed on your machine before runni
 
 ### 1. Clone Repository
 
-```bash
 git clone https://github.com/yyusifov/Web_Mobile_Flash_Card_App.git
 
 ### 2. Navigate to the Project Directory
